@@ -1,0 +1,87 @@
+body{
+    background-color: #262222;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;    
+}
+.container{
+    margin-top:10px;
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    background-color:#262222;
+    margin: 6px;
+    height: 90px;
+    width: 700px;
+    border-radius:20px;
+    outline: none;
+    border: 4px solid white;
+    font-family: "JetBrains Mono",monospace;
+    font-size: 30px;
+    color: white;
+    text-align: left;
+    padding-left: 30px;
+    transition: 0.5s;
+}
+.btn-q{
+  width:auto;
+}
+.btn-options:hover {
+  background-color:white;
+  transition: 0.3s;
+  color: black;
+}
+.btn-options:active{
+  border: 10px solid black;
+  transition: 0.01s
+}
+.game-header{
+    font-family: "JetBrains Mono",monospace;
+    font-size: 75px;
+    text-align:center;
+    background-image: linear-gradient(
+        -125deg,
+        #72e763 0%,
+        #909de6 29%,
+        #f69bba 67%,
+        #f7ee4f 100%
+      );
+  background-size: 300% auto;
+   background-clip: text; 
+   -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+  animation: textclip 6s linear infinite;
+  margin-bottom: -7px;
+  
+}
+.times{
+  color: white;
+  position:absolute;
+  right: 150px;
+  top: 50px;
+  font-family: "JetBrains Mono",monospace;
+  font-size: 100px;
+  background-image: linear-gradient(
+    -125deg,
+    #f09368 0%,
+    #2278e8 29%,
+    #fa7da7 67%,
+    #ffffff 100%
+  );
+background-size: 300% auto;
+background-clip: text; 
+-webkit-background-clip: text; 
+-webkit-text-fill-color: transparent;
+animation: textclip 6s linear infinite;
+}
+@keyframes textclip {
+    to {
+      background-position: 300% center;
+    }
+  }

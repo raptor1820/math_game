@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/game.css" type="text/css">
+    <title>Document</title>
+</head>
+<body onload="loadq()">
+    <h1 class="game-header">Math Game</h1>
+    <p class="times" id="timer">10</p>
+    <div class="container">
+       <input type="button" disabled="true" class="btn btn-q" value="" id="q" >
+       <input type="button" class="btn btn-options" value="" id="a" onclick="clickSound(); nextq(this.id)">
+       <input type="button" class="btn btn-options" value="" id="b" onclick="clickSound(); nextq(this.id)">
+       <input type="button" class="btn btn-options" value="" id="c" onclick="clickSound(); nextq(this.id)">
+       <input type="button" class="btn btn-options" value="" id="d" onclick="clickSound(); nextq(this.id)">      
+    </div>
+    <script>
+        var time= 20;
+        document.getElementById("timer").innerHTML = time;
+        const timer = setInterval(function (){
+            if(time===1){
+                clearInterval(timer);
+                submit();
+            }
+            time-=1;
+            document.getElementById("timer").innerHTML = time;
+        },1000)
+        function clickSound(){
+            var click = new Audio("/optclick.wav");
+            click.play()
+            
+        }
+        var q_arr =["What is 2*2+2/2?", "What is 4! ?", "(a^2 - b^2) is equal to?","If a/b = c/d then","The point of intersection of all medians of a triangle is"]
+        var a_arr =["5","19","(a-b+ab)","ac=bd","circumcenter"]
+        var b_arr =["7","43","(a+b+ab)","ad=bc","incenter"]
+        var c_arr =["0","24","(a+b)^2","ab=cd","centroid"]
+        var d_arr =["10","42","(a+b)(a-b)","abc=dcb","orthocenter"]
+        
+        var given_ans =["","","","",""]
+        var count=0;
+        function loadq(){
+        document.getElementById("q").value = "Q. "+q_arr[count];
+        document.getElementById("a").value = "A. "+a_arr[count];
+        document.getElementById("b").value = "B. "+b_arr[count];
+        document.getElementById("c").value = "C. "+c_arr[count];
+        document.getElementById("d").value = "D. "+d_arr[count];
+        }
+        function nextq(id){
+        given_ans[count]= id;
+        count++
+        if(count>=q_arr.length){
+            submit();
+            return;
+        }
+
+        document.getElementById("q").value = "Q. "+q_arr[count];
+        document.getElementById("a").value = "A. "+a_arr[count];
+        document.getElementById("b").value = "B. "+b_arr[count];
+        document.getElementById("c").value = "C. "+c_arr[count];
+        document.getElementById("d").value = "D. "+d_arr[count];
+    
+        }
+        function submit(){
+            var name = localStorage.getItem("UID");
+            var send_arr = given_ans;
+            var user ={
+                uid: name,
+                ans: send_arr
+            }
+            let options = {
+            method: 'POST',
+            headers: {
+                'Content-Type':
+                    'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(user)
+        }
+        fetch("/submitted",options).then(response => response.json()).then(final_response => window.location.href = final_response.link)
+
+    }
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+body{
+    background-color: #262222;
+    display: flex;
+    flex-direction: column;
+    
+}
+h1{
+        font-family: "JetBrains Mono",monospace;
+        font-size: 100px;
+        white-space: nowrap;
+       
+        
+
+        background-image: linear-gradient(
+            -125deg,
+            #72e763 0%,
+            #909de6 29%,
+            #f69bba 67%,
+            #f7ee4f 100%
+          );
+      background-size: 300% auto;
+       background-clip: text; 
+       -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent;
+      animation: textclip 6s linear infinite; 
+      margin-bottom: -7px;
+}
+@keyframes textclip {
+    to {
+      background-position: 300% center;
+    }
+  }
+.div1{
+    height: 200px;
+    animation: openclose 7s ease-in-out;
+    margin-left: 100px;
+}
+@keyframes openclose {
+    0%{width:0;}
+    250%{width:200px;}
+    50%{width:700px;}
+    75%{width:1200px;}
+    100%{width:1350px;}
+}
+.div2{
+    height: 200px;
+    opacity: 0;
+    animation: openclose2 3s 5s 1 ease-in forwards;
+   margin-left:100px;
+}
+@keyframes openclose2 {
+    0%{width:0; opacity: 0;}
+    250%{width:10px;opacity: 0.25;}
+    50%{width:20px;opacity: 0.5;}
+    75%{width:40px;opacity: 0.75;}
+    100%{width:50px;opacity: 1;}
+}
+.btn{
+    outline:none;
+    margin-top:-10px;
+    justify-content: center;
+    align-self: center;
+    background-color: #FCFCFD;
+    text-align: center;
+    border-radius: 4px;
+    border-width: 0;
+    color: #36395A;
+    font-family: "JetBrains Mono",monospace;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    transition: box-shadow .15s,transform .15s;
+    height:60px;
+    width:250px;
+    text-align: center;
+    font-size:30px;
+    border-radius: 15px;
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.4) 0 4px 8px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-10px);
+}
+.btn:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(5px);
+} 

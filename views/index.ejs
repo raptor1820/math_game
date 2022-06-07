@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css" type="text/css" >
+    <script>
+        var clicker = new Audio("/clicksound.wav")
+        function clickSound(){
+            clicker.play()
+        }
+        function storeUID() {
+            var uid = document.getElementById("uid").value; 
+            localStorage.setItem("UID",uid)
+            window.location.replace("/game")
+        }
+    </script>
+    
+    <title>Document</title>
+</head>
+<body class="body" >
+    <h1 class="game-header">Math Game</h1>
+        <div class="container">
+            <input type="text" placeholder="Username..." class="textarea" autocomplete="off"  id="uid">
+            <button type="button" class="btn" onclick="clickSound(); setTimeout(storeUID,2000)">Start</button>
+            
+            </div>
+            </body>
+</html>

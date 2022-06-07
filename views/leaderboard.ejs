@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/leaderboard.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Leaderboard</h1>
+    <div>
+    <table id= "tb">   
+            <th>Name</th>
+            <th>Score</th>
+            </table>
+          
+</div>
+    <script>
+        var url = "https://api.jsonbin.io/b/629eef9505f31f68b3b8a0af/latest"
+
+        async function fetcher(){
+        await fetch(url)
+        .then(response => response.json())
+        .then((resp)=>{
+            var arr = resp.record;
+            console.log(arr)
+            const sorted = arr.sort((x,y)=>{
+                return y.score-x.score;
+            })
+            const table = document.getElementById('tb')
+            sorted.forEach((item) => {
+            table.innerHTML = table.innerHTML + `<tr>
+                <td>${item.name}</td>
+                <td>${item.score}</td>
+            </tr>`
+    })
+        })}
+        fetcher();
+    </script>
+</body>
+</html>

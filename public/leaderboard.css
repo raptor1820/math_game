@@ -1,0 +1,75 @@
+body{
+    background-color: #262222;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    font-family: "JetBrains Mono",monospace;
+    font-size:100px;
+background-image: linear-gradient(
+    -125deg,
+    #f09368 0%,
+    #2278e8 29%,
+    #fa7da7 67%,
+    #ffaaaa 100%
+  );
+background-size: 300% auto;
+background-clip: text; 
+-webkit-background-clip: text; 
+-webkit-text-fill-color: transparent;
+animation: textclip 6s linear infinite;
+}
+
+table{
+    color:white;
+   font-family: "JetBrains Mono",monospace;
+   font-size: 40px;
+   margin:10px;
+   display: block;
+   flex-direction: column;
+
+}
+td, th {
+
+    padding: 1rem;
+    width: 200px;
+    text-align:center;
+}
+td{
+    font-family: "JetBrains Mono",monospace;
+    background-image: linear-gradient(
+        -125deg,
+        #ff5100 0%,
+        #006eff 29%,
+        #ff0055 67%,
+        #8000ff 100%
+      );
+    background-size: 300% auto;
+    background-clip: text; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    animation: textclip 6s linear infinite;
+}
+th{
+    font-family: "JetBrains Mono",monospace;
+    background-image: linear-gradient(
+        -125deg,
+        #ffdccb 0%,
+        #bedaff 29%,
+        #ffbdd3 67%,
+        #c0ffbe 100%
+      );
+    background-size: 300% auto;
+    background-clip: text; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    animation: textclip 6s linear infinite;
+}
+
+@keyframes textclip {
+    to {
+      background-position: 300% center;
+    }
+  }
